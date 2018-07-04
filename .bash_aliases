@@ -1,0 +1,6 @@
+alias shot='scrot -s ~/screenshots/%H%M%S.png'
+alias explorer='thunar .'
+alias vm='~/git/cidscropt/bin/cidscropt'
+alias poweroff='/sbin/poweroff'
+alias cs='/home/r/git/cidscropt/bin/cidscropt'
+alias switch='/usr/bin/dm-tool switch-to-greeter'

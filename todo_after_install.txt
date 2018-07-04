@@ -1,0 +1,11 @@
+# firefox configuration
+# just open up firefox type in about:config and change these values (mimic windows behavior)
+mousewheel.min_line_scroll_amount 45
+browser.urlbar.clickSelectsAll true
+general.smoothScroll.mouseWheel.durationMaxMS 50
+general.smoothScroll.mouseWheel.durationMinMS 0
+# if you have a theme change the border width and remove the titlebar e.g in openbox with no decor
+changed /usr/share/themes openbox3 Numix theme border width to 0
+browser.newtabpage.activity-stream.topSitesRows 12
+user_pref("noscript.default",""); //in ~/.mozilla profile prefs.js
+middlemouse.paste false
