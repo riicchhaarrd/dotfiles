@@ -1,0 +1,8 @@
+/sbin/iwconfig
+nano /etc/network/interfaces
+
+iface <iface> inet dhcp
+	wpa-ssid <ssid>
+	wpa-psk <pass>
+
+/sbin/ifup <interface>
