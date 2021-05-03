@@ -104,3 +104,4 @@ inoremap <C-b> <PageDown>
 inoremap <C-t> <C-o>de
 " Reset ctrl + i back to jumplist
 silent! unmap <C-i>
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
