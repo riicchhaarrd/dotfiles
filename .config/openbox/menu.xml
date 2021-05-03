@@ -45,7 +45,7 @@
 		</item>
 		<item label="Text editor">
 			<action name="Execute">
-				<execute>leafpad</execute>
+				<execute>mousepad</execute>
 			</action>
 		</item>
 		<item label="Notepad++">
@@ -60,7 +60,7 @@
 		</item>
 		<item label="Media player">
 			<action name="Execute">
-				<execute>vlc</execute>
+				<execute>mpv</execute>
 			</action>
 		</item>
 		<!-- This requires the presence of the 'menu' package to work -->

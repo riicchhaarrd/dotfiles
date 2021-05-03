@@ -30,7 +30,7 @@
     <center>yes</center>
     <!-- whether to place windows in the center of the free area found or
        the top left corner -->
-    <monitor>Primary</monitor>
+    <monitor>Mouse</monitor>
     <!-- with Smart placement on a multi-monitor system, try to place new windows
        on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
        the active window is, 'Primary' - only on the primary monitor -->
@@ -43,7 +43,7 @@
   </placement>
   <theme>
     <name>Numix</name>
-    <titleLayout>NLDIMC</titleLayout>
+    <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -57,8 +57,8 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>Sans</name>
-      <size>10</size>
+      <name>Noto Sans</name>
+      <size>7</size>
       <!-- font size in points -->
       <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -66,8 +66,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>Sans</name>
-      <size>10</size>
+      <name>Noto Sans</name>
+      <size>7</size>
       <!-- font size in points -->
       <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -75,39 +75,39 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>sans</name>
-      <size>9</size>
+      <name>Noto Sans</name>
+      <size>8</size>
       <!-- font size in points -->
-      <weight>normal</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>sans</name>
-      <size>9</size>
+      <name>Noto Sans</name>
+      <size>8</size>
       <!-- font size in points -->
-      <weight>normal</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>sans</name>
-      <size>9</size>
+      <name>Noto Sans</name>
+      <size>8</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>sans</name>
-      <size>9</size>
+      <name>Noto Sans</name>
+      <size>8</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
   </theme>
@@ -120,7 +120,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>5</number>
+    <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
       <!-- set names up here if you want to, like this:
@@ -128,7 +128,7 @@
     <name>desktop 2</name>
     -->
     </names>
-    <popupTime>275</popupTime>
+    <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
@@ -177,28 +177,21 @@
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
   <keyboard>
-    <keybind key="C-q">
-      <action name="Close"/>
-    </keybind>
-    <keybind key="C-space">
+    <chainQuitKey>C-g</chainQuitKey>
+    <keybind key="W-space">
       <action name="ToggleMaximizeFull"/>
     </keybind>
     <keybind key="W-b">
       <action name="ToggleDecorations"/>
     </keybind>
-    <keybind key="W-x">
+    <keybind key="C-space">
       <action name="Execute">
-        <command>~/scripts/snd/switch_sink.sh headphones</command>
-      </action>
-    </keybind>
-    <keybind key="W-z">
-      <action name="Execute">
-        <command>~/scripts/snd/switch_sink.sh speakers</command>
+        <command>rofi -combi-modi window,drun,ssh -font "hack 10" -show combi -show-icons</command>
       </action>
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>gmrun</command>
+        <command>rofi -combi-modi window,drun,ssh -font "hack 10" -show combi -show-icons</command>
       </action>
     </keybind>
     <keybind key="C-A-t">
@@ -208,15 +201,30 @@
     </keybind>
     <keybind key="C-S-d">
       <action name="Execute">
-        <command>~/scripts/recvid.sh</command>
+        <command>~/scripts/sharex_video.sh</command>
       </action>
     </keybind>
     <keybind key="C-S-s">
       <action name="Execute">
-        <command>~/scripts/curl_upload.sh --selection</command>
+        <command>~/scripts/screenshot.sh</command>
       </action>
     </keybind>
-    <chainQuitKey>C-g</chainQuitKey>
+    <keybind key="W-a">        # HalfLeftScreen
+    <action name="UnmaximizeFull"/>
+    <action name="MoveResizeTo"><x>0</x><y>0</y><height>97%</height><width>50%</width></action>
+	</keybind>
+    <keybind key="W-d">       # HalfRightScreen
+		<action name="UnmaximizeFull"/>
+		<action name="MoveResizeTo"><x>-0</x><y>0</y><height>97%</height><width>50%</width></action>
+	</keybind>
+    <keybind key="W-w">          # HalfUpperScreen
+		<action name="UnmaximizeFull"/>
+		<action name="MoveResizeTo"><x>0</x><y>0</y><width>100%</width><height>50%</height></action>
+	</keybind>
+    <keybind key="W-s">        # HalfLowerScreen
+		<action name="UnmaximizeFull"/>
+		<action name="MoveResizeTo"><x>0</x><y>-0</y><width>100%</width><height>50%</height></action>
+	</keybind>
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop">
@@ -286,27 +294,9 @@
         <to>4</to>
       </action>
     </keybind>
-    <!--
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    -->
-    <keybind key="W-a">        # HalfLeftScreen
-    <action name="UnmaximizeFull"/>
-    <action name="MoveResizeTo"><x>0</x><y>0</y><height>97%</height><width>50%</width></action>
-	</keybind>
-    <keybind key="W-d">       # HalfRightScreen
-		<action name="UnmaximizeFull"/>
-		<action name="MoveResizeTo"><x>-0</x><y>0</y><height>97%</height><width>50%</width></action>
-	</keybind>
-    <keybind key="W-w">          # HalfUpperScreen
-		<action name="UnmaximizeFull"/>
-		<action name="MoveResizeTo"><x>0</x><y>0</y><width>100%</width><height>50%</height></action>
-	</keybind>
-    <keybind key="W-s">        # HalfLowerScreen
-		<action name="UnmaximizeFull"/>
-		<action name="MoveResizeTo"><x>0</x><y>-0</y><width>100%</width><height>50%</height></action>
-	</keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
       <action name="Close"/>
@@ -391,23 +381,7 @@
     <!-- Launch scrot when Print is pressed -->
     <keybind key="Print">
       <action name="Execute">
-        <command>~/scripts/curl_upload.sh --all</command>
-      </action>
-    </keybind>
-    <keybind key="W-v">
-      <action name="DesktopNext"/>
-    </keybind>
-    <keybind key="W-c">
-      <action name="DesktopPrevious"/>
-    </keybind>
-    <keybind key="W-Down">
-      <action name="Execute">
-        <command>~/scripts/snd/set_cur_sink_vol.sh -0.01</command>
-      </action>
-    </keybind>
-    <keybind key="W-Up">
-      <action name="Execute">
-        <command>~/scripts/snd/set_cur_sink_vol.sh 0.01</command>
+        <command>scrot</command>
       </action>
     </keybind>
   </keyboard>
@@ -442,15 +416,11 @@
       <mousebind button="A-Right" action="Drag">
         <action name="Resize"/>
       </mousebind>
-      <!--<mousebind button="A-Middle" action="Press">
+      <mousebind button="A-Middle" action="Press">
         <action name="Lower"/>
         <action name="FocusToBottom"/>
         <action name="Unfocus"/>
-      </mousebind>-->
-      <mousebind button="A-Middle" action="Press">
-        <action name="Close"/>
       </mousebind>
-      <!--
       <mousebind button="A-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
@@ -479,25 +449,6 @@
       <mousebind button="A-S-Down" action="Click">
         <action name="SendToDesktop">
           <to>next</to>
-        </action>
-      </mousebind>
-	  -->
-      <!--
-	 <mousebind action="Click" button="A-Up">
-        <action name="DesktopPrevious"/>
-      </mousebind>
-      <mousebind action="Click" button="A-Down">
-        <action name="DesktopNext"/>
-      </mousebind>
-	  -->
-      <mousebind action="Click" button="W-Down">
-        <action name="Execute">
-          <command>~/scripts/snd/set_cur_sink_vol.sh -0.01</command>
-        </action>
-      </mousebind>
-      <mousebind action="Click" button="W-Up">
-        <action name="Execute">
-          <command>~/scripts/snd/set_cur_sink_vol.sh 0.01</command>
         </action>
       </mousebind>
     </context>
@@ -796,12 +747,8 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
-    <application type="normal">
-      <decor>yes</decor>
-      <keepBorder>no</keepBorder>
-      <animateIconify>yes</animateIconify>
-      <shaded>yes</shaded>
-      <focus>yes</focus>
+    <application class="Firefox">
+      <decor>no</decor>
     </application>
     <!--
   # this is an example with comments through out. use these to make your
