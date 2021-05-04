@@ -1,1 +1,20 @@
-sudo apt install build-essential firmware-linux obmenu obconf openbox lightdm lxterminal gmrun chromium chromium-ublock-origin dmz-cursor-theme numix-gtk-theme numix-icon-theme numix-icon-theme-circle wicd-gtk xfce4-panel git cifs-utils notification-daemon thunar thunar-* ttf-mscorefonts-installer vlc libreoffice pavucontrol wine nitrogen lxappearance firefox 
+sudo apt install firmware-linux firmware-realtek build-essential gcc-multilib g++-multilib \
+linux-headers-$(uname -r) nvidia-driver \
+nvidia-driver-bin nvidia-driver-libs dmz-cursor-theme ttf-mscorefonts-installer \
+pavucontrol xfce4-panel xorg xinit openbox lxappearance obconf lxterminal \
+policykit-1-gnome x11-xserver-utils x11-xserver-utils xcompmgr \
+firefox-esr dbus-x11 lxrandr software-properties-common kate mousepad \
+git htop curl gmrun unzip krita thunderbird numix-gtk-theme numix-icon-theme \
+adwaita-icon-theme thunar xfce4-settings xfce4-pulseaudio-plugin nautilus \
+nautilus-share kompare breeze-icon-theme redshift cifs-utils gvfs-fuse \
+gvfs-daemons viewnior mpv feh nitrogen lxsession-default-apps tint2 chromium \
+chromium-ublock-origin gvfs gvfs-daemons gvfs-backends gvfs-bin gvfs-fuse \
+gvfs-libs gvfs-common nautilus-data \
+nautilus-extension-gnome-terminal libreoffice neofetch xinput chromium-sandbox \
+chromium-sandbox chromium-common mesa-vulkan-drivers libglx-mesa0:i386 \
+mesa-vulkan-drivers:i386 libgl1-mesa-dri:i386 nvidia-driver-libs:i386 \
+gnome-disk-utility rofi cowsay pnmixer qemu-kvm qemu-system qemu-utils ssvnc \
+tigervnc-viewer maim slop ffmpeg shotcut samba bridge-utils xcursor-themes \
+chameleon-cursor-theme exuberant-ctags highlight lolcat libsdl2-2.0-0 \
+libsdl2-2.0-0:i386 tracker-miner-fs scdaemon lxterminal ranger jq curl xclip \
+scrot libnotify-bin neovim neovim-qt dbus-x11 tree emacs tmux terminator indent gnome-terminal irony-server cmake libclang-cpp-dev libclang-common-12-dev libclang-* cmake ccls elpa-lsp-mode  elpa-lsp-ui elpa-company-lsp clang libclang-dev workrave elpa-evil elpa-lsp-mode elpa-lsp-ui  elpa-company-lsp ccls elpa-debian-el elpa-evil 
