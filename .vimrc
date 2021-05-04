@@ -61,6 +61,7 @@ set backspace=indent,eol,start
 
 
 colorscheme onehalflight
+"colorscheme slate
 
 set splitbelow
 set splitright
@@ -86,8 +87,10 @@ vnoremap <S-Tab> <gv
 
 "inoremap <silent> <Up> <ESC><Up>
 "inoremap <silent> <Down> <ESC><Down>
-inoremap jj <Esc>
-inoremap jk <Esc>
+
+"exit insert mode, by pressing jj or jk quickly  
+"inoremap jj <Esc>
+"inoremap jk <Esc>
 
 nnoremap <CR> :noh<CR><CR>
 "set mouse=i
@@ -105,14 +108,13 @@ inoremap <C-t> <C-o>de
 " Reset ctrl + i back to jumplist
 silent! unmap <C-i>
 
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-
 filetype plugin on
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 au FileType php setl ofu=phpcomplete#CompletePHP
-au FileType ruby,eruby setl ofu=rubycomplete#Complete
-au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
-au FileType c setl ofu=ccomplete#CompleteCpp
-au FileType css setl ofu=csscomplete#CompleteCSS
+"au FileType ruby,eruby setl ofu=rubycomplete#Complete
+"au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+"au FileType c setl ofu=ccomplete#CompleteCpp
+"au FileType css setl ofu=csscomplete#CompleteCSS
 
 " status line thanks to https://shapeshed.com/vim-statuslines/
 function! GitBranch()
@@ -148,3 +150,6 @@ set statusline+=\
 
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+nnoremap <C-\> i
+imap <C-\> <Esc>
