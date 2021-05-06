@@ -79,11 +79,17 @@ nnoremap <C-H> <C-W><C-H>
 vnoremap > >gv
 vnoremap < <gv
 
-nnoremap <Tab> >>_
-nnoremap <S-Tab> <<_
-inoremap <S-Tab> <C-D>
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
+" instead of using tab and shift use shift < and shift >
+"nnoremap <Tab> >>_
+"nnoremap <S-Tab> <<_
+"inoremap <S-Tab> <C-D>
+"vnoremap <Tab> >gv
+"vnoremap <S-Tab> <gv
+
+" tab to enter insert mode
+" tab to exit enter mode from insert mode
+nnoremap <Tab> i
+inoremap <Tab> <Esc>
 
 "inoremap <silent> <Up> <ESC><Up>
 "inoremap <silent> <Down> <ESC><Down>
@@ -96,7 +102,7 @@ nnoremap <CR> :noh<CR><CR>
 "set mouse=i
 set whichwrap+=<,>,h,l,[,]
 set mouse=a
-source $VIMRUNTIME/mswin.vim
+"source $VIMRUNTIME/mswin.vim
 
 " reset ctrl + f (forward) and ctrl + b (backwards) scrolling
 nnoremap <C-f> <PageUp>
@@ -153,3 +159,38 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 nnoremap <C-\> i
 imap <C-\> <Esc>
+
+map! <Tab> <Esc>
+
+" rebind arrow keys to forward and back
+
+"nnoremap <silent> <C-Right> <c-w>l
+"nnoremap <silent> <C-Left> <c-w>h
+nnoremap <silent> <C-Up> 10k
+nnoremap <silent> <C-Down> 10j
+inoremap <silent> <C-Up> <Esc>10ki
+inoremap <silent> <C-Down> <Esc>10ji
+
+" From https://superuser.com/questions/706674/moving-to-the-beginning-of-line-within-vim-insert-mode
+map <C-a> <ESC>^
+imap <C-a> <ESC>I
+map <C-e> <ESC>$
+imap <C-e> <ESC>A
+inoremap <M-f> <ESC><Space>Wi
+inoremap <M-b> <Esc>Bi
+inoremap <M-d> <ESC>cW
+
+" To paste text and put the cursor behind it use gp
+" Select the area first with visual select then yank it (y)
+" '> to go the the end of the visual selection
+" '< to go the start of the visual selection
+" 
+"
+"
+" To surround something with quotes for instance use 
+" ciw '' Esc P
+" https://stackoverflow.com/questions/2147875/what-vim-commands-can-be-used-to-quote-unquote-words 
+"
+"
+" Registers
+" To paste last inserted text use "p.
