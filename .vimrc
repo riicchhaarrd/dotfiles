@@ -172,7 +172,7 @@ inoremap <silent> <C-Up> <Esc>10ki
 inoremap <silent> <C-Down> <Esc>10ji
 
 " From https://superuser.com/questions/706674/moving-to-the-beginning-of-line-within-vim-insert-mode
-map <C-a> <ESC>^
+"map <C-a> <ESC>^ " Used for incrementing numbers.
 imap <C-a> <ESC>I
 map <C-e> <ESC>$
 imap <C-e> <ESC>A
@@ -197,3 +197,15 @@ inoremap <M-d> <ESC>cW
 "
 " Evaluating expressions
 " <CTRL-R>=12+34<CR>
+"
+"
+" Go to begin of line 0, go to the end of line CTRL + | or $
+"
+"
+"
+" Increment and decrement numbers
+" CTRL-A and CTRL - K
+"nnoremap <A-a> <C-a>
+"nnoremap <A-x> <C-x>
+"verbose map <C-a> " View current key map
+"nunmap <C-a> "Not needed, only if the key C-a was bound already somewhere
