@@ -194,3 +194,6 @@ inoremap <M-d> <ESC>cW
 "
 " Registers
 " To paste last inserted text use "p.
+"
+" Evaluating expressions
+" <CTRL-R>=12+34<CR>
