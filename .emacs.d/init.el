@@ -221,7 +221,7 @@
 (setq x-underline-at-descent-line t)
 (setq centaur-tabs-set-modified-marker t)
 (setq centaur-tabs-modified-marker "*")
-(centaur-tabs-change-fonts "Consolas for Powerline" 80)
+(centaur-tabs-change-fonts "Open Sans" 80)
 
 (defun centaur-tabs-hide-tab (x)
   "Do no to show buffer X in tabs."
@@ -258,7 +258,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cua-mode t nil (cua-base))
  '(custom-safe-themes
    '("3957edd5051733cf0f50c184f3ef41fa181706fbc7ac2043d1f3b4d0034b2fe3" "f08d2081f6783a5712cdce418f3962bd97a2054e8960609aad53f013a8b6f1cc" default))
  '(package-selected-packages
@@ -268,7 +267,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Consolas for Powerline" :foundry "MS  " :slant normal :weight normal :height 80 :width normal)))))
+ '(default ((t (:family "Consolas for Powerline" :foundry "MS  " :slant normal :weight normal :height 82 :width normal)))))
 
 ;; bind CTRL-C t to toggle treemacs
 (global-set-key (kbd "C-c t") 'treemacs)
@@ -287,7 +286,7 @@
               treemacs-directory-collapsed-face
               treemacs-file-face
               treemacs-tags-face))
-(set-face-attribute face nil :family "Consolas for Powerline" :height 80))
+(set-face-attribute face nil :family "Open Sans" :height 80))
 
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
@@ -326,3 +325,6 @@
 (setq clang-format-style-option "file")
 (setq clang-format-fallback-style "Microsoft")
 (fset 'c-indent-region 'clang-format-region)
+
+;; To be able to select identifiers with underscores easier
+(superword-mode)
