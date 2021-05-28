@@ -1,9 +1,15 @@
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
-;; and `package-pinned-packages`. Most users will not need or want to do this.
-;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(setq package-enable-at-startup nil)
+(setq package-archives '(("org"  . "http://orgmode.org/elpa/")
+					  ("gnu"   . "http://elpa.gnu.org/packages/")
+					  ("melpa" . "http://melpa.org/packages/")))
 (package-initialize)
+
+(unless (package-installed-p 'use-package)
+(package-refresh-contents)
+(package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)
 
 ;; Some useful shortcut reminders
 
@@ -30,6 +36,37 @@
 
 ;; Search and replace (query-replace)
 ;; M-% (Alt + Shift + 5)
+
+;; Begin of section
+
+;; Useful links
+;; https://orgmode.org/worg/org-tutorials/org-latex-export.html
+
+;; Some LaTeX and org mode reminders / useful things
+
+;; #+LaTeX_CLASS: article
+;; to have superscripted references instead of [1]
+;; #+LATEX_HEADER: \usepackage[superscript,biblabel]{cite}
+
+;; use _CLASS instead
+;; #+LATEX_HEADER: \documentclass{article}
+
+;; TODO figure out how to use these, gives error when generating file
+;; #+LATEX_HEADER: \usepackage{apacite}
+;; #+LATEX_HEADER: \bibliographystyle{apacite}
+
+;; Adding a reference to a website link
+
+;; The Google Search engine\cite{google}
+;; 
+;; \begin{thebibliography}{1}
+;; 
+;; \bibitem{google}  \url{https://google.com}
+;; 
+;; \end{thebibliography}
+
+
+;; End of section
 
 (setq c-default-style "stroustrup")
 (setq-default tab-width 4)
@@ -170,6 +207,30 @@
 
 ;; (require 'org-ref)
 
+  (use-package org-bullets
+    :custom
+    (org-hide-leading-stars t)
+    :hook org)
+
+(require 'ox-latex)
+
+(defun org-export-latex-no-toc (depth)
+    (when depth
+      (format "%% Org-mode is exporting headings to %s levels.\n"
+              depth)))
+(setq org-export-latex-format-toc-function 'org-export-latex-no-toc)
+
+(add-to-list 'org-latex-classes
+		   '("apa6"
+			 "\\documentclass{apa6}"
+			 ("\\section{%s}" . "\\section*{%s}")
+			 ("\\subsection{%s}" . "\\subsection*{%s}")
+			 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+			 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+			 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+(setq org-latex-pdf-process
+	  '("latexmk -pdflatex='pdflatex -interaction nonstopmode' -pdf -bibtex -f %f"))
+
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
   backup-by-copying t    ; Don't delink hardlinks
   version-control t      ; Use version numbers on backups
@@ -188,11 +249,11 @@
  '(custom-safe-themes
    '("36d890facd489128e70af97d73899d0a4cbab7c8e6971f7dba64a6e7764fcaa0" default))
  '(package-selected-packages
-   '(yasnippet-snippets lsp-ui evil company-lsp use-package treemacs naysayer-theme clang-format))
+   '(org-ref ox-twbs org-bullets yasnippet-snippets lsp-ui evil company-lsp use-package treemacs naysayer-theme clang-format))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Noto Sans Mono" :foundry "GOOG" :slant normal :weight normal :height 112 :width normal)))))
+ '(default ((t (:family "Consolas for Powerline" :foundry "MS  " :slant normal :weight normal :height 119 :width normal)))))
