@@ -86,6 +86,7 @@
 (global-set-key (kbd "C-y") 'undo-tree-redo)
 ;; (global-set-key (kbd "C-f") 'isearch-forward)
 (global-set-key [(control f)] 'isearch-forward)
+(global-set-key [(control w)] 'backward-kill-word)
 (define-key isearch-mode-map [(control f)] 'isearch-repeat-forward)
 (define-key global-map [?\s-g] 'goto-line)
 
@@ -95,8 +96,19 @@
 
 (setq org-support-shift-select t)
 
+(require 'org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+(setq org-startup-with-inline-images t)
+(setq org-image-actual-width 400)
+
+(require 'org-download)
+
+;; Drag-and-drop to `dired`
+(add-hook 'dired-mode-hook 'org-download-enable)
+
 ;; enable some modes
-(superword-mode)
+;; (superword-mode)
+(add-hook 'c-mode-common-hook 'superword-mode)
 ;; (which-key-mode)
 ;; (global-linum-mode)
 
@@ -245,15 +257,15 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cua-mode t nil (cua-base))
- '(custom-enabled-themes '(naysayer))
+ '(custom-enabled-themes '(leuven))
  '(custom-safe-themes
    '("36d890facd489128e70af97d73899d0a4cbab7c8e6971f7dba64a6e7764fcaa0" default))
  '(package-selected-packages
-   '(org-ref ox-twbs org-bullets yasnippet-snippets lsp-ui evil company-lsp use-package treemacs naysayer-theme clang-format))
+   '(org-download org-superstar org-ref ox-twbs org-bullets yasnippet-snippets lsp-ui evil company-lsp use-package treemacs naysayer-theme clang-format))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Consolas for Powerline" :foundry "MS  " :slant normal :weight normal :height 119 :width normal)))))
+ '(default ((t (:family "Consolas for Powerline" :foundry "MS  " :slant normal :weight normal :height 112 :width normal)))))
