@@ -1,0 +1,29 @@
+[global_config]
+  title_use_system_font = False
+  title_font = Segoe UI 10
+[keybindings]
+  split_horiz = <Primary>underscore
+  split_vert = <Primary>bar
+  page_up_half = <Primary>Up
+  page_down_half = <Primary>Down
+[profiles]
+  [[default]]
+    background_color = "#122c50"
+    background_darkness = 0.9
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Consolas for Powerline 10
+    foreground_color = "#eeeeec"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
