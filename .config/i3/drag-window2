@@ -1,0 +1,64 @@
+#!/bin/bash
+
+window_id=$(printf '0x%x' $(xdotool getmouselocation --shell | grep WINDOW | awk -F "=" '{print $2}'))
+i3-msg [id=$window_id] focus
+
+startx=$(xdotool getmouselocation --shell | grep X | awk -F "=" '{print $2}')
+starty=$(xdotool getmouselocation --shell | grep Y | awk -F "=" '{print $2}')
+
+MOUSE_ID=$(xinput list|grep -i mouse|sed -r 's/^.+id=([0-9]+).+$/\1/')  # Get mouse X device ID
+
+#i3-msg "mark --toggle b"
+i3-msg "mark b"
+i3-msg "floating enable"
+i3-msg "resize set 512 512"
+
+#notify-send -t 750 "Message" "Waiting"
+
+while true; do    # Delay until button is released
+    sleep 0.05    
+    STATE1=$(xinput --query-state $MOUSE_ID | grep 'button\[9\]=up' | sort)
+    if [ "$STATE1" != "" ]; then
+    break
+    fi
+	i3-msg "[con_mark="b"] focus"
+	i3-msg "move position mouse"
+done
+
+#i3-msg "[con_mark="b"] [tiling] floating toggle"
+i3-msg "[con_mark="b"] focus"
+#i3-msg "move position mouse"
+i3-msg "floating disable"
+
+#window_id=$(printf '0x%x' $(xdotool getmouselocation --shell | grep WINDOW | awk -F "=" '{print $2}'))
+#i3-msg [id=$window_id] mark TargetWindow
+#i3-msg move window to mark TargetWindow
+
+# this is hardcoded for my own setup (2 monitors) and i'm checking the resolution x coordinate to check on which monitor it is and to move it either way
+
+xpos=$(xdotool getmouselocation --shell | grep X | awk -F "=" '{print $2}')
+ypos=$(xdotool getmouselocation --shell | grep Y | awk -F "=" '{print $2}')
+
+if [ "$xpos" -gt "1920" ]; then
+    # 2nd monitor
+    if [ "$starty" -gt "$ypos" ]; then
+        i3-msg "move up"
+    else
+        i3-msg "move down"
+    fi
+else
+    if [ "$startx" -gt "$xpos" ]; then
+        i3-msg "move left"
+    else
+        # otherwise it would go to the 2nd monitor
+        i3-msg "move left"
+        i3-msg "move right"
+    fi
+fi
+
+i3-msg "unmark b"
+i3-msg "unmark TargetWindow"
+
+#notify-send -t 750 "Message" "Done"
+
+exit

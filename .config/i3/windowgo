@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Author: Aeghn
+# Jump between Emacs and i3wm
+
+WM_CLASS_STRING=$(xprop -id $(xdotool getwindowfocus) WM_CLASS)
+WM_CLASS_STRING=${WM_CLASS_STRING##* }
+
+#emacsclient=~/.local/bin/emacsclient
+emacsclient="/usr/bin/emacsclient"
+
+# get_side_window() {
+#     echo "(select-window (let ((window nil))
+#   (while (window-in-direction '${1} window)
+#     (setq window (window-in-direction '${1} window)))
+#   window))"
+# }
+
+#if [ "${WM_CLASS_STRING}" == '"Firefox"' ];
+#then
+#
+#    if [ "$1" == "o" ];
+#    then
+#        xdotool key --clearmodifiers ctrl+Tab
+#        exit
+#    elif [ "$1" == "i" ];
+#    then
+#        xdotool key --clearmodifiers ctrl+shift+Tab
+#        exit
+#    fi
+#    
+#fi
+
+case $1 in
+    i) [ "${WM_CLASS_STRING}" == '"Emacs"' ] &&\
+           $emacsclient -e "(windmove-left)"  ||\
+               i3-msg 'focus left'
+       ;;
+    o) [ "${WM_CLASS_STRING}" == '"Emacs"' ] &&\
+           $emacsclient -e "(windmove-right)" ||\
+               i3-msg 'focus right'
+       ;;
+    p) [ "${WM_CLASS_STRING}" == '"Emacs"' ] &&\
+           $emacsclient -e "(windmove-up)"    ||\
+               i3-msg 'focus up'
+       ;;
+    n) [ "${WM_CLASS_STRING}" == '"Emacs"' ] &&\
+           $emacsclient -e "(windmove-down)"  ||\
+               i3-msg 'focus down'
+       ;;
+esac
