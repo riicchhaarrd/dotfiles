@@ -25,7 +25,7 @@
        mouse into it, also raise the window -->
   </focus>
   <placement>
-    <policy>Smart</policy>
+    <policy>UnderMouse</policy>
     <!-- 'Smart' or 'UnderMouse' -->
     <center>yes</center>
     <!-- whether to place windows in the center of the free area found or
@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Numix</name>
+    <name>test</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -55,10 +55,10 @@
       D: omnipresent (on all desktops).
   -->
     <keepBorder>yes</keepBorder>
-    <animateIconify>yes</animateIconify>
+    <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
-      <name>Noto Sans</name>
-      <size>7</size>
+      <name>Segoe UI</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -66,17 +66,17 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>Noto Sans</name>
-      <size>7</size>
+      <name>Segoe UI</name>
+      <size>10</size>
       <!-- font size in points -->
-      <weight>Bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>Noto Sans</name>
-      <size>8</size>
+      <name>Segoe UI</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -84,8 +84,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>Noto Sans</name>
-      <size>8</size>
+      <name>Segoe UI</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -93,19 +93,19 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>Noto Sans</name>
-      <size>8</size>
+      <name>Segoe UI</name>
+      <size>10</size>
       <!-- font size in points -->
-      <weight>Bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>Noto Sans</name>
-      <size>8</size>
+      <name>Segoe UI</name>
+      <size>10</size>
       <!-- font size in points -->
-      <weight>Bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
@@ -120,7 +120,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>4</number>
+    <number>3</number>
     <firstdesk>1</firstdesk>
     <names>
       <!-- set names up here if you want to, like this:
@@ -189,6 +189,11 @@
         <command>rofi -combi-modi window,drun,ssh -font "hack 10" -show combi -show-icons</command>
       </action>
     </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>slock</command>
+      </action>
+    </keybind>
     <keybind key="W-r">
       <action name="Execute">
         <command>rofi -combi-modi window,drun,ssh -font "hack 10" -show combi -show-icons</command>
@@ -196,7 +201,7 @@
     </keybind>
     <keybind key="C-A-t">
       <action name="Execute">
-        <command>lxterminal</command>
+        <command>x-terminal-emulator</command>
       </action>
     </keybind>
     <keybind key="C-S-d">
@@ -225,6 +230,28 @@
 		<action name="UnmaximizeFull"/>
 		<action name="MoveResizeTo"><x>0</x><y>-0</y><width>100%</width><height>50%</height></action>
 	</keybind>
+
+    <keybind key="W-f">        # Center in middle
+		<action name="UnmaximizeFull"/>
+		<action name="MoveResizeTo"><x>12%</x><y>10%</y><width>75%</width><height>80%</height></action>
+	</keybind>
+    
+
+    <keybind key="W-1">
+	  <action name="MoveResizeTo">
+        <x>12%</x><y>10%</y><width>75%</width><height>80%</height>
+		<monitor>1</monitor>
+      </action>
+    </keybind>
+
+    
+    <keybind key="W-2">
+	  <action name="MoveResizeTo">
+        <x>12%</x><y>10%</y><width>75%</width><height>80%</height>
+		<monitor>1</monitor>
+      </action>
+    </keybind>
+    
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop">
@@ -298,6 +325,9 @@
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
+    <keybind key="C-q">
+      <action name="Close"/>
+    </keybind>
     <keybind key="A-F4">
       <action name="Close"/>
     </keybind>
@@ -369,6 +399,7 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
+    <!--
     <keybind key="W-e">
       <action name="Execute">
         <startupnotify>
@@ -378,6 +409,7 @@
         <command>kfmclient openProfile filemanagement</command>
       </action>
     </keybind>
+-->
     <!-- Launch scrot when Print is pressed -->
     <keybind key="Print">
       <action name="Execute">
@@ -398,22 +430,22 @@
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
     <context name="Frame">
-      <mousebind button="A-Left" action="Press">
+      <mousebind button="W-Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
       </mousebind>
-      <mousebind button="A-Left" action="Click">
+      <mousebind button="W-Left" action="Click">
         <action name="Unshade"/>
       </mousebind>
-      <mousebind button="A-Left" action="Drag">
+      <mousebind button="W-Left" action="Drag">
         <action name="Move"/>
       </mousebind>
-      <mousebind button="A-Right" action="Press">
+      <mousebind button="W-Right" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
         <action name="Unshade"/>
       </mousebind>
-      <mousebind button="A-Right" action="Drag">
+      <mousebind button="W-Right" action="Drag">
         <action name="Resize"/>
       </mousebind>
       <mousebind button="A-Middle" action="Press">
@@ -421,22 +453,22 @@
         <action name="FocusToBottom"/>
         <action name="Unfocus"/>
       </mousebind>
-      <mousebind button="A-Up" action="Click">
+      <mousebind button="W-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
         </action>
       </mousebind>
-      <mousebind button="A-Down" action="Click">
+      <mousebind button="W-Down" action="Click">
         <action name="GoToDesktop">
           <to>next</to>
         </action>
       </mousebind>
-      <mousebind button="C-A-Up" action="Click">
+      <mousebind button="C-W-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
         </action>
       </mousebind>
-      <mousebind button="C-A-Down" action="Click">
+      <mousebind button="C-W-Down" action="Click">
         <action name="GoToDesktop">
           <to>next</to>
         </action>
@@ -654,22 +686,22 @@
           <to>next</to>
         </action>
       </mousebind>
-      <mousebind button="A-Up" action="Click">
+      <mousebind button="W-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
         </action>
       </mousebind>
-      <mousebind button="A-Down" action="Click">
+      <mousebind button="W-Down" action="Click">
         <action name="GoToDesktop">
           <to>next</to>
         </action>
       </mousebind>
-      <mousebind button="C-A-Up" action="Click">
+      <mousebind button="C-W-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
         </action>
       </mousebind>
-      <mousebind button="C-A-Down" action="Click">
+      <mousebind button="C-W-Down" action="Click">
         <action name="GoToDesktop">
           <to>next</to>
         </action>
@@ -707,12 +739,12 @@
           <to>next</to>
         </action>
       </mousebind>
-      <mousebind button="A-Up" action="Click">
+      <mousebind button="W-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
         </action>
       </mousebind>
-      <mousebind button="A-Down" action="Click">
+      <mousebind button="W-Down" action="Click">
         <action name="GoToDesktop">
           <to>next</to>
         </action>
@@ -748,6 +780,9 @@
   </menu>
   <applications>
     <application class="Firefox">
+      <decor>no</decor>
+    </application>
+    <application class="Emacs">
       <decor>no</decor>
     </application>
     <!--
