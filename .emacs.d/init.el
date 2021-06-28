@@ -206,7 +206,11 @@ This command does not push text to `kill-ring'."
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 (menu-bar-mode -1) 
-(toggle-scroll-bar -1) 
+(toggle-scroll-bar -1)
+
+(customize-set-variable 'scroll-bar-mode nil)
+(customize-set-variable 'horizontal-scroll-bar-mode nil)
+
 (tool-bar-mode -1)
 
 ;; https://stackoverflow.com/questions/3631220/fix-to-get-smooth-scrolling-in-emacs
@@ -371,6 +375,14 @@ This command does not push text to `kill-ring'."
 
 (global-set-key (kbd "C-x p") 'org-insert-image-clipboard)
 
+(global-set-key (kbd "C-c m d") 'magit-diff-buffer-file)
+;; use 1 through 4 to expand the sections
+;; and s to stage files, c c to commit C-c C-c and b b to switch to another branch
+;; https://www.emacswiki.org/emacs/Magit
+;; P u to git push
+;; F u to git pull
+(global-set-key (kbd "C-c m s") 'magit-status)
+
 (desktop-save-mode 1) ; 0 for off
 (setq desktop-save t)
 
@@ -385,30 +397,30 @@ This command does not push text to `kill-ring'."
 ;; (global-set-key (kbd "M-<down>")  'windmove-down)
 
 ;; Open split terminal on launch
-(add-hook 'emacs-startup-hook
-  (lambda ()
-    (let ((w (split-window-below 2)))
-      (select-window w)
-      (minimize-window)
-	  (enlarge-window 5)
-      (term "/bin/bash"))
-      (switch-to-buffer "*terminal*")))
+;; (add-hook 'emacs-startup-hook
+;;   (lambda ()
+;;     (let ((w (split-window-below 2)))
+;;       (select-window w)
+;;       (minimize-window)
+;; 	  (enlarge-window 5)
+;;       (term "/bin/bash"))
+;;       (switch-to-buffer "*terminal*")))
 
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
   (other-window 1))
 
-(add-hook 'after-init-hook
-          (lambda ()
-            ;; No splash screen
-            (setq inhibit-startup-screen t)
-
-            ;; If the *scratch* buffer is the current one, then create a new
-            ;; empty untitled buffer to hide *scratch*
-            (if (string= (buffer-name) "*scratch*")
-                (new-empty-buffer))
-            )
-          t) ;; append this hook to the tail
+;; (add-hook 'after-init-hook
+;;           (lambda ()
+;;             ;; No splash screen
+;;             (setq inhibit-startup-screen t)
+;; 
+;;             ;; If the *scratch* buffer is the current one, then create a new
+;;             ;; empty untitled buffer to hide *scratch*
+;;             (if (string= (buffer-name) "*scratch*")
+;;                 (new-empty-buffer))
+;;             )
+;;           t) ;; append this hook to the tail
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
   backup-by-copying t    ; Don't delink hardlinks
@@ -427,12 +439,11 @@ This command does not push text to `kill-ring'."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cua-mode t nil (cua-base))
- '(custom-enabled-themes '(zenburn))
+ '(custom-enabled-themes '(leuven))
  '(custom-safe-themes
    '("e6df46d5085fde0ad56a46ef69ebb388193080cc9819e2d6024c9c6e27388ba9" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "d14f3df28603e9517eb8fb7518b662d653b25b26e83bd8e129acea042b774298" "ae5b216c8bf4c27e6de9cc7627e5fac03915fe1a5ce5c35eacb8860fa4a4cb94" "36d890facd489128e70af97d73899d0a4cbab7c8e6971f7dba64a6e7764fcaa0" "51ba8411a3c669279cba2e3d35d6a260986e95e57a9734bdd6c23af658117429" default))
- '(menu-bar-mode nil)
  '(package-selected-packages
-   '(zenburn-theme solarized-theme gruvbox-theme rainbow-delimiters highlight-numbers plantuml-mode org-download org-superstar org-ref ox-twbs org-bullets yasnippet-snippets lsp-ui evil company-lsp use-package treemacs naysayer-theme clang-format))
+   '(magit zenburn-theme solarized-theme gruvbox-theme rainbow-delimiters highlight-numbers plantuml-mode org-download org-superstar org-ref ox-twbs org-bullets yasnippet-snippets lsp-ui evil company-lsp use-package treemacs naysayer-theme clang-format))
  '(scroll-conservatively 10)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -440,4 +451,5 @@ This command does not push text to `kill-ring'."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Consolas for Powerline" :foundry "MS  " :slant normal :weight normal :height 103 :width normal))))
  '(minibuffer-prompt ((t (:background "black" :foreground "#F0DFAF" :weight bold)))))
