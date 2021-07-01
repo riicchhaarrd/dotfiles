@@ -189,6 +189,11 @@
         <command>rofi -combi-modi window,drun,ssh -font "hack 10" -show combi -show-icons</command>
       </action>
     </keybind>
+    <keybind key="W-v">
+      <action name="Execute">
+        <command>dolphin</command>
+      </action>
+    </keybind>
     <keybind key="W-l">
       <action name="Execute">
         <command>slock</command>
@@ -199,6 +204,14 @@
         <command>rofi -combi-modi window,drun,ssh -font "hack 10" -show combi -show-icons</command>
       </action>
     </keybind>
+
+    
+    <keybind key="W-Return">
+      <action name="Execute">
+        <command>x-terminal-emulator</command>
+      </action>
+    </keybind>
+    
     <keybind key="C-A-t">
       <action name="Execute">
         <command>x-terminal-emulator</command>

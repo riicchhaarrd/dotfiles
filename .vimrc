@@ -60,7 +60,7 @@ set undolevels=1000
 set backspace=indent,eol,start
 
 
-colorscheme onehalflight
+"colorscheme onehalflight
 "colorscheme slate
 
 set splitbelow
@@ -88,8 +88,8 @@ vnoremap < <gv
 
 " tab to enter insert mode
 " tab to exit enter mode from insert mode
-nnoremap <Tab> i
-inoremap <Tab> <Esc>
+"nnoremap <Tab> i
+"inoremap <Tab> <Esc>
 
 "inoremap <silent> <Up> <ESC><Up>
 "inoremap <silent> <Down> <ESC><Down>
@@ -160,7 +160,7 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <C-\> i
 imap <C-\> <Esc>
 
-map! <Tab> <Esc>
+"map! <Tab> <Esc>
 
 " rebind arrow keys to forward and back
 
@@ -209,3 +209,11 @@ inoremap <M-d> <ESC>cW
 "nnoremap <A-x> <C-x>
 "verbose map <C-a> " View current key map
 "nunmap <C-a> "Not needed, only if the key C-a was bound already somewhere
+
+" Shift + Enter to enter newline in normal mode (only works in GVim, non-terminal)
+"nnoremap <S-Enter> moO<Esc>`o
+
+noremap <silent> <space> :exe "normal i".nr2char(getchar())<CR>
+"noremap <silent> <s-space> :exe "normal a".nr2char(getchar())<CR>
+nmap <CR> o<Esc>
+nmap <BS> ddk
