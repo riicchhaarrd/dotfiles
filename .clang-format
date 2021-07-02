@@ -6,5 +6,5 @@ UseTab: Always
 PointerAlignment: Left
 ConstructorInitializerAllOnOneLineOrOnePerLine: 'true'
 ReflowComments: 'true'
-SpacesInParentheses: 'true'
+SpacesInParentheses: 'false'
 ...
