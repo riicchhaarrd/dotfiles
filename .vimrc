@@ -60,7 +60,7 @@ set undolevels=1000
 set backspace=indent,eol,start
 
 
-"colorscheme onehalflight
+colorscheme onehalflight
 "colorscheme slate
 
 set splitbelow
@@ -217,3 +217,16 @@ noremap <silent> <space> :exe "normal i".nr2char(getchar())<CR>
 "noremap <silent> <s-space> :exe "normal a".nr2char(getchar())<CR>
 nmap <CR> o<Esc>
 nmap <BS> ddk
+
+if &diff
+    colorscheme default
+endif
+
+" vimdiff cheatsheet
+" ]c :        - next difference
+" [c :        - previous difference
+" do          - diff obtain
+" dp          - diff put
+" zo          - open folded text
+" zc          - close folded text
+" :diffupdate - re-scan the files for differences
