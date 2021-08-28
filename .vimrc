@@ -219,7 +219,7 @@ nmap <CR> o<Esc>
 nmap <BS> ddk
 
 if &diff
-    colorscheme default
+    colorscheme evening 
 endif
 
 " vimdiff cheatsheet

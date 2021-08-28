@@ -3,3 +3,5 @@
 	name = Richard
 [diff]
 	tool = vimdiff
+[difftool]
+	prompt = true

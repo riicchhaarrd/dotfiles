@@ -15,9 +15,10 @@
 # If you want to use XFCE config tools...
 #
 #xfce-mcs-manager &
-#xrandr --output DP-0 --mode 1920x1080 --rate 144.00 --primary --output HDMI-0 --rotate left --mode 2560x1080 --rate 60.00 --right-of DP-0 &
+xrandr --output DP-0 --mode 1920x1080 --rate 144.00 --primary --output HDMI-0 --rotate normal --mode 2560x1080 --rate 60.00 --right-of DP-0 &
 #xrandr --output DP-0 --pos 0x740 --mode 1920x1080 --rate 144.00 --primary --output HDMI-0 --pos 1920x0 --mode 2560x1080 --rate 60.00 --right-of DP-0 &
-xrandr --output HDMI-0 --mode 2560x1080 --pos 1920x0 --rotate left --rate 60.00 --output DP-0 --primary --mode 1920x1080 --pos 0x740 --rotate normal --rate 144.00
+#xrandr --output HDMI-0 --mode 2560x1080 --pos 1920x0 --rotate left --rate 60.00 --output DP-0 --primary --mode 1920x1080 --pos 0x740 --rotate normal --rate 144.00
+#xrandr --output HDMI-0 --mode 2560x1080 --pos 1920x0 --rotate left --rate 60.00 --output DP-0 --primary --mode 1920x1080 --pos 0x740 --rotate normal --rate 144.00
 #xfce4-panel &
 tint2 &
 #xcompmgr &
@@ -36,7 +37,7 @@ mouse_id=$(xinput --list --id-only 'Kingsis Peripherals ZOWIE Gaming mouse')
 xinput --set-prop $mouse_id 'libinput Accel Profile Enabled' 0, 1
 xinput --set-prop $mouse_id "libinput Accel Speed" -0.35
 # reverse left and right button of mouse
-xmodmap -e "pointer = 3 2 1"
+#xmodmap -e "pointer = 3 2 1"
 #bash ~/.config/openbox/mouse.sh -0.75
 #pnmixer &
 #pasystray&

@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>test</name>
+    <name>test_old</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -57,17 +57,17 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
-      <name>Segoe UI</name>
-      <size>10</size>
+      <name>More Perfect DOS VGA</name>
+      <size>12</size>
       <!-- font size in points -->
-      <weight>Bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>Segoe UI</name>
-      <size>10</size>
+      <name>More Perfect DOS VGA</name>
+      <size>12</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -75,8 +75,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>Segoe UI</name>
-      <size>10</size>
+      <name>More Perfect DOS VGA</name>
+      <size>12</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -84,8 +84,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>Segoe UI</name>
-      <size>10</size>
+      <name>More Perfect DOS VGA</name>
+      <size>12</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -93,8 +93,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>Segoe UI</name>
-      <size>10</size>
+      <name>More Perfect DOS VGA</name>
+      <size>12</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -102,8 +102,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>Segoe UI</name>
-      <size>10</size>
+      <name>More Perfect DOS VGA</name>
+      <size>12</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -204,14 +204,11 @@
         <command>rofi -combi-modi window,drun,ssh -font "hack 10" -show combi -show-icons</command>
       </action>
     </keybind>
-
-    
     <keybind key="W-Return">
       <action name="Execute">
         <command>x-terminal-emulator</command>
       </action>
     </keybind>
-    
     <keybind key="C-A-t">
       <action name="Execute">
         <command>x-terminal-emulator</command>
@@ -220,6 +217,11 @@
     <keybind key="C-S-d">
       <action name="Execute">
         <command>~/scripts/sharex_video.sh</command>
+      </action>
+    </keybind>
+    <keybind key="C-S-t">
+      <action name="Execute">
+        <command>~/scripts/sharex_image.sh --selection</command>
       </action>
     </keybind>
     <keybind key="C-S-s">
@@ -243,28 +245,28 @@
 		<action name="UnmaximizeFull"/>
 		<action name="MoveResizeTo"><x>0</x><y>-0</y><width>100%</width><height>50%</height></action>
 	</keybind>
-
     <keybind key="W-f">        # Center in middle
 		<action name="UnmaximizeFull"/>
 		<action name="MoveResizeTo"><x>12%</x><y>10%</y><width>75%</width><height>80%</height></action>
 	</keybind>
-    
-
     <keybind key="W-1">
-	  <action name="MoveResizeTo">
-        <x>12%</x><y>10%</y><width>75%</width><height>80%</height>
-		<monitor>1</monitor>
+      <action name="MoveResizeTo">
+        <x>12%</x>
+        <y>10%</y>
+        <width>75%</width>
+        <height>80%</height>
+        <monitor>1</monitor>
       </action>
     </keybind>
-
-    
     <keybind key="W-2">
-	  <action name="MoveResizeTo">
-        <x>12%</x><y>10%</y><width>75%</width><height>80%</height>
-		<monitor>1</monitor>
+      <action name="MoveResizeTo">
+        <x>12%</x>
+        <y>10%</y>
+        <width>75%</width>
+        <height>80%</height>
+        <monitor>1</monitor>
       </action>
     </keybind>
-    
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop">
@@ -334,9 +336,11 @@
         <to>4</to>
       </action>
     </keybind>
+    <!--
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
+	-->
     <!-- Keybindings for windows -->
     <keybind key="C-q">
       <action name="Close"/>
@@ -792,10 +796,15 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
+    <!--
     <application class="Firefox">
       <decor>no</decor>
     </application>
     <application class="Emacs">
+      <decor>no</decor>
+    </application>
+    -->
+    <application class="Terminator">
       <decor>no</decor>
     </application>
     <!--
