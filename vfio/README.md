@@ -25,7 +25,7 @@ user = "username"
 group = "username"
 ```
 
-``
+```
 sudo usermod -a -G kvm $USER 
 sudo usermod -a -G libvirt $USER
 sudo systemctl start libvirtd
