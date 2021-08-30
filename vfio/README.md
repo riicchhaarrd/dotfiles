@@ -161,6 +161,7 @@ Reboot your computer again.
 
 ### Hooks
 
+**Make sure you edit the hook scripts so they match your specific hardware setup (IOMMU group, PCI-id)**
 1. Copy the hooks folder into /etc/libvirt.
 2. Edit your virtual machine and remove the SPICE display.
 3. Add your USB mouse & keyboard to your VM.
