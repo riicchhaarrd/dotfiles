@@ -20,3 +20,4 @@ echo 1 > /sys/class/vtconsole/vtcon0/bind
 echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/bind
 
 #su -s /bin/bash -c "/usr/bin/startx" -g $USER $USER
+systemctl start display-manager.service

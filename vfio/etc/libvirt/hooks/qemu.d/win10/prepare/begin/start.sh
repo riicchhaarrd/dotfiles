@@ -10,9 +10,10 @@ set -x
 #sudo fuser -v /dev/snd/by-path/pci-0000\:01\:00.1
 
 ## Kill the Display Manager
-#systemctl stop lightdm
-#killall -u $USER
-killall openbox
+systemctl stop lightdm
+#killall -u user
+#killall openbox
+#systemctl stop display-manager.service
 systemctl stop nvidia-persistenced
 
 ## Remove the framebuffer and console
@@ -20,7 +21,7 @@ echo 0 > /sys/class/vtconsole/vtcon0/bind
 #echo 0 > /sys/class/vtconsole/vtcon1/bind
 echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
 
-sleep 2
+sleep 5
 
 echo -n "0000:09:00.0" > /sys/bus/pci/devices/0000:09:00.0/driver/unbind #gpu
 echo -n "0000:09:00.1" > /sys/bus/pci/devices/0000:09:00.1/driver/unbind #audio
